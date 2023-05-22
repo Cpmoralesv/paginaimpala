@@ -97,55 +97,56 @@
   </header>
 
   <!-- IMAGEN CAMBIANTE -->
+  <!DOCTYPE html>
+<html>
+<head>
   <style>
     .image-button {
       cursor: pointer;
     }
   </style>
-  
+</head>
+<body>
   <div style="display: flex; align-items: center; justify-content: center; position: relative;">
     <div class="image-container">
       <img id="changing-image" class="image" src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/1.jpg" alt="Imagen cambiante">
     </div>
-  
+
     <button onclick="changeImage('previous')" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: transparent; border: none; padding: 0;" class="image-button">
-      <img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/previus.png" alt="Anterior" style="width: 35px; height: 35px;"><!-- Tamaño del botón: 35x35 -->
+      <img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/previus.png" alt="Anterior" style="width: 35px; height: 35px;">
     </button>
     <button onclick="changeImage('next')" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: transparent; border: none; padding: 0;" class="image-button">
-      <img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/next.png" alt="Siguiente" style="width: 35px; height: 35px;"><!-- Tamaño del botón: 35x35 -->
+      <img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/next.png" alt="Siguiente" style="width: 35px; height: 35px;">
     </button>
   </div>
-  
+
   <script>
     const images = [
       "https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/1.jpg",
       "https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/2.jpg",
       "https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/3.jpg"
     ];
-  
+
     let currentIndex = 0;
-  
+
     function changeImage(direction) {
       if (direction === "previous") {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
       } else if (direction === "next") {
         currentIndex = (currentIndex + 1) % images.length;
       }
-  
-      const x = "center";
-      const y = "top";
+
       const currentImage = images[currentIndex];
       document.getElementById("changing-image").src = currentImage;
-      document.getElementById("changing-image").style.objectFit = "contain";
-      document.body.style.backgroundImage = "url(" + currentImage + ")";
-      document.body.style.backgroundPosition = x + " " + y;
     }
-  
+
     setInterval(() => {
       changeImage('next');
     }, 2500);
   </script>
-  
+</body>
+</html>
+
   
   <!-- FORMULARIO -->
   <style>
