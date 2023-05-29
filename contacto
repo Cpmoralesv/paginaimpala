@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Impala</title>
+  <meta charset="UTF-8">
+
+  <style>
+    /* Estilos CSS para el encabezado */
+    header {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .white-bar {
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .black-bar {
+      background-color: black;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 10px;
+    }
+    
+    .logo img {
+      width: 400px; /* Ajusta el tamaño del logo según tus necesidades */
+      margin-right: 20px;
+    }
+    
+    .menu {
+      display: flex;
+      order: 2; /* Cambia el orden del menú */
+    }
+    
+    .menu a {
+      color: white;
+      margin-right: 30px;
+      text-decoration: none;
+      font-size: 18px; /* Tamaño de la letra del menú */
+    }
+    
+    .social {
+      display: flex;
+      align-self: center;
+    }
+    
+    .social a {
+      margin-left: 10px;
+    }
+    
+    .social img {
+      width: 30px; /* Ajusta el tamaño de los logotipos de las redes sociales según tus necesidades */
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 100px); /* Ajusta la altura de la imagen según tus necesidades */
+    }
+    
+    .image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .categorias-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .categoria {
+      position: relative;
+      width: 30%;
+      height: 200px;
+      margin: 10px;
+      border: 1px solid black;
+      text-align: center;
+    }
+
+    .nombre-categoria {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px 0;
+      margin: 0;
+      transform: translateY(-50%);
+      font-weight: bold;
+    }
+
+    .contact-form {
+      text-align: center;
+      font-family: 'Artifakt Element Light', sans-serif;
+      margin-top: 20px;
+      margin-bottom: 100px;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+    }
+
+    .contact-form .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .contact-form .form-row label {
+      text-align: right;
+      margin-right: 1px;
+      width: 100px;
+      height: 20px;
+    }
+
+    .contact-form .form-row .input {
+      flex: 1;
+    }
+
+    .contact-form textarea {
+      width: 400px;
+      height: 1000px;
+    }
+
+    .contact-form .message-container {
+      display: flex;
+    }
+  </style>
+
+  
+</head>
+
+<body>
+  <header>
+    <div class="white-bar">
+      <div class="logo">
+        <img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/logo.png" alt="Logo">
+      </div>
+    </div>
+    <div class="black-bar">
+      <div class="social">
+        <a href="https://www.google.com" target="_blank"><img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/in.png" alt="Red Social 1"></a>
+        <a href="https://www.google.com" target="_blank"><img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/fb.png" alt="Red Social 2"></a>
+        <a href="https://www.google.com" target="_blank"><img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/wsp.png" alt="Red Social 3"></a>
+        <a href="https://www.google.com" target="_blank"><img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/mail.png" alt="Red Social 4"></a>
+      </div>
+      <div class="menu">
+        <a href="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/index.html">Inicio</a>
+        <a href="file:///C:/Users/cristopher.morales/Desktop/Solo%20esto/Pagina%20Web/Nueva%20carpeta/Impala%20Quienes%20Somos.html">Quiénes somos</a>
+        <a href="#">Productos</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- FORMULARIO-->
+
+  <style>
+    body {
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .container h2 {
+      text-align: center;
+    }
+    .container input[type="email"],
+    .container textarea,
+    .container input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .container textarea {
+      height: 100px;
+    }
+    .container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    .container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    footer {
+      background-color: #333333;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Formulario de Contacto</h2>
+    <form action="mailto:crismoralesvelasquez@gmail.com" method="POST" enctype="text/plain">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+      
+      <label for="message">Mensaje:</label>
+      <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí" required></textarea>
+      
+      <input type="submit" value="Enviar">
+    </form>
+  </div>
+
+
+
+
+<!-- FOOTER -->
+<style>
+  footer {
+    background-color: #6D848C;
+    height: 180px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea verticalmente al centro */
+    align-items: center; /* Alinea horizontalmente al centro */
+    text-align: center;
+  }
+
+  .footer-logo {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: flex-start; /* Alinea horizontalmente a la izquierda */
+    width: 50%; /* Ajusta el ancho del contenedor del logo */
+    margin-right: auto; /* Mueve el contenedor del logo a la derecha */
+    top: 1000px; 
+  }
+
+  .footer-logo img {
+    width: 200px; /* Ajusta el tamaño del logo */
+    height: auto; /* Ajusta la altura del logo de forma proporcional */
+    object-fit: contain; /* Ajusta el ajuste del logo dentro del contenedor */
+  }
+
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-links li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .social-links a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+</style>
+
+<footer>
+  <div class="footer-logo">
+    <img src="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/logo2.png?raw=true" alt="Logo" width="200" height="auto">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Quiénes Sómos</a></li>
+      <li><a href="#">Productos</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </div>
+  <div class="social-links">
+    <a href="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/in.png?raw=true">
+      <img src="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/in.png?raw=true" alt="Instagram" width="32" height="32">
+    </a>
+    <a href="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/fb.png?raw=true">
+      <img src="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/fb.png?raw=true" alt="Facebook" width="32" height="32">
+    </a>
+    <a href="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/wsp.png?raw=true">
+      <img src="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/wsp.png?raw=true" alt="WhatsApp" width="32" height="32">
+    </a>
+  </div>
+  <div class="footer-text">
+    <p>Derechos de autor © 2023 Tu Empresa. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+    
+ <!-- WHATSAPP SCROLL -->
+
+  <a href="https://wa.me/56936840775" target="_blank" style="
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+">
+  <img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/escribenos.png" alt="WhatsApp" style="width: 120px; height: 120px;">
+</a>
+
+ 
+</body>
+</html>
+
+
+
