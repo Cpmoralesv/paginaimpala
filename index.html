@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Impala</title>
   <meta charset="UTF-8">
 
   <style>
@@ -69,8 +70,75 @@
       max-height: 100%;
       object-fit: contain;
     }
+
+    .categorias-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .categoria {
+      position: relative;
+      width: 30%;
+      height: 200px;
+      margin: 10px;
+      border: 1px solid black;
+      text-align: center;
+    }
+
+    .nombre-categoria {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px 0;
+      margin: 0;
+      transform: translateY(-50%);
+      font-weight: bold;
+    }
+
+    .contact-form {
+      text-align: center;
+      font-family: 'Artifakt Element Light', sans-serif;
+      margin-top: 20px;
+      margin-bottom: 100px;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+    }
+
+    .contact-form .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .contact-form .form-row label {
+      text-align: right;
+      margin-right: 1px;
+      width: 100px;
+      height: 20px;
+    }
+
+    .contact-form .form-row .input {
+      flex: 1;
+    }
+
+    .contact-form textarea {
+      width: 400px;
+      height: 1000px;
+    }
+
+    .contact-form .message-container {
+      display: flex;
+    }
   </style>
 
+  
 </head>
 
 <body>
@@ -90,23 +158,21 @@
       <div class="menu">
         <a href="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/index.html">Inicio</a>
         <a href="file:///C:/Users/cristopher.morales/Desktop/Solo%20esto/Pagina%20Web/Nueva%20carpeta/Impala%20Quienes%20Somos.html">Quiénes somos</a>
-        <a href="#">Portafolio</a>
+        <a href="#">Productos</a>
         <a href="#">Contacto</a>
       </div>
     </div>
   </header>
-
+  
   <!-- IMAGEN CAMBIANTE -->
-  <!DOCTYPE html>
-<html>
-<head>
+
+
   <style>
     .image-button {
       cursor: pointer;
     }
   </style>
-</head>
-<body>
+
   <div style="display: flex; align-items: center; justify-content: center; position: relative;">
     <div class="image-container">
       <img id="changing-image" class="image" src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/1.jpg" alt="Imagen cambiante">
@@ -144,102 +210,211 @@
       changeImage('next');
     }, 2500);
   </script>
-</body>
-</html>
+
+  <!-- CATEGORIAS -->
 
   
-  <!-- FORMULARIO -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Artifakt+Element:wght@300&display=swap');
-    
-    .container {
+    .categorias-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      height: 30vh; /* Modifica la altura del contenedor del formulario */
     }
-    
-    .contact-form {
-      text-align: center;
-      font-family: 'Artifakt Element Light', sans-serif;
-      margin-bottom: 120px; /* Ajusta el margen inferior para subir la sección del formulario */
-    }
-    
-    .contact-form h2 {
+
+    .categoria {
+      position: relative;
+      width: 30%;
+      height: 200px;
+      margin: 10px;
+      border: 1px solid black;
       text-align: center;
     }
-    
-    .contact-form .form-row {
+
+    .nombre-categoria {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 10px 0;
+      margin: 0;
+      transform: translateY(-50%);
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    // Arreglo con las URLs de las imágenes de cada categoría
+    var imagenesCategoria = [
+      ["https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/Emprendedores1.JPG", "https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/Emprendedores2.jpg"],
+      ["https://github.com/Cpmoralesv/paginaimpala/blob/webcris/Regalos1.JPG?raw=true", "https://github.com/Cpmoralesv/paginaimpala/blob/webcris/Regalos2.JPG?raw=true"],
+      ["https://github.com/Cpmoralesv/paginaimpala/blob/webcris/Festividades1.JPG?raw=true", "https://github.com/Cpmoralesv/paginaimpala/blob/webcris/Festividades2.JPG?raw=true"],
+      ["https://github.com/Cpmoralesv/paginaimpala/blob/webcris/Organizadores1.JPG?raw=true", "https://github.com/Cpmoralesv/paginaimpala/blob/webcris/Organizadores2.jpg?raw=true"],
+      ["https://github.com/Cpmoralesv/paginaimpala/blob/webcris/Decoracion1.JPG?raw=true", "https://github.com/Cpmoralesv/paginaimpala/blob/webcris/Decoracion2.JPG?raw=true"]
+    ];
+
+    var nombresCategoria = [
+      "Emprendedores",
+      "Regalos",
+      "Festividades",
+      "Organizadores",
+      "Decoración"
+    ];
+
+    // Función para generar las categorías y mostrar las imágenes
+    function generarCategorias() {
+      var categoriasContainer = document.getElementsByClassName("categorias-container")[0];
+
+      for (var i = 0; i < imagenesCategoria.length; i++) {
+        var categoria = document.createElement("div");
+        categoria.className = "categoria";
+        categoria.style.backgroundImage = "url('" + imagenesCategoria[i][0] + "')";
+
+        var nombreCategoria = document.createElement("p");
+        nombreCategoria.className = "nombre-categoria";
+        nombreCategoria.textContent = nombresCategoria[i];
+
+        categoria.appendChild(nombreCategoria);
+        categoriasContainer.appendChild(categoria);
+      }
+    }
+
+    // Iniciar cambio de imágenes
+    function cambiarImagenes() {
+      var categorias = document.getElementsByClassName("categoria");
+
+      for (var i = 0; i < categorias.length; i++) {
+        var nombreCategoriaActual = nombresCategoria[i];
+        var imagenesCategoriaActual = imagenesCategoria[i];
+        var categoria = categorias[i];
+
+        categoria.style.backgroundImage = "url('" + imagenesCategoriaActual[1] + "')";
+        categoria.getElementsByClassName("nombre-categoria")[0].textContent = nombreCategoriaActual;
+      }
+
+      setTimeout(restaurarImagenes, 3000);
+    }
+
+    // Restaurar las imágenes originales
+    function restaurarImagenes() {
+      var categorias = document.getElementsByClassName("categoria");
+
+      for (var i = 0; i < categorias.length; i++) {
+        var nombreCategoriaActual = nombresCategoria[i];
+        var imagenesCategoriaActual = imagenesCategoria[i];
+        var categoria = categorias[i];
+
+        categoria.style.backgroundImage = "url('" + imagenesCategoriaActual[0] + "')";
+        categoria.getElementsByClassName("nombre-categoria")[0].textContent = nombreCategoriaActual;
+      }
+
+      setTimeout(cambiarImagenes, 2000);
+    }
+
+    // Ejecutar la función al cargar la página
+    window.onload = function() {
+      generarCategorias();
+      cambiarImagenes();
+    };
+  </script>
+
+  <!-- Categorías -->
+  <div class="categorias-container"></div>
+  
+ <!-- FOODER -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    footer {
+      background-color: #6D848C;
+      height: 280px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      padding: 0 200px; /* Modificar este valor para ajustar el padding hacia la izquierda */
+      color: white;
+    }
+    footer img {
+      width: 250px;
+      margin-left: -100px; /* Ajusta este valor para mover el logo hacia la izquierda */
+    }
+    footer form {
+      display: grid;
+      grid-template-columns: max-content auto;
+      grid-gap: 10px;
+      align-items: center;
+    }
+    footer h3 {
+      grid-column: span 2; /* Hace que el título ocupe las 2 columnas del grid */
+      text-align: center; /* Centra el título horizontalmente */
+    }
+    footer label {
+      grid-column: 1;
+      display: block;
       margin-bottom: 10px;
-      
     }
-    
-    .contact-form .form-row label {
-      text-align: right;
-      margin-right: 1px;
-      width: 100px; /* Ajusta el ancho de las etiquetas para alinearlas */
-      height: 20px; /* Ajusta la altura de la casilla de mensaje */
+    footer input,
+    footer textarea {
+      grid-column: 2;
+      width: 200px;
+      padding: 5px;
+      margin-bottom: 10px;
     }
-    
-    .contact-form .form-row .input {
-      flex: 1; /* Ajusta el ancho de las casillas para ocupar el espacio restante */
-    }
-    
-    .contact-form textarea {
-      width: 400px; /* Tamaño predeterminado para el área de mensaje */
-      height: 1000px; /* Ajusta la altura de la casilla de mensaje */
-    }
-    
-    .contact-form .message-container {
+    footer button {
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Alinea el contenido a la izquierda */
-      margin-bottom: 10px;
-      position: relative; /* Añade posición relativa al contenedor */
-    }
-    
-    .contact-form .message-container button {
-      position: absolute;
-      bottom: -50px; /* Alinea el botón 30px hacia abajo del recuadro */
-      right: 0; /* Alinea el botón a la derecha */
       background-color: black;
       color: white;
-      font-family: 'Artifakt Element Light', sans-serif;
       padding: 10px 20px;
       border: none;
       cursor: pointer;
+      display: flex;
     }
-    </style>
-    
-    <div class="container">
-      <div class="contact-form">
-        <h2>¡CONTÁCTANOS!</h2>
-        <form action="mailto:crismoralesvelasquez@gmail.com" method="post" enctype="text/plain">
-          <div class="form-row">
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" class="input" style="width: 350px;" required>
-          </div>
-    
-          <div class="form-row">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" class="input" style="width: 350px;" required>
-          </div>
-    
-          <div class="form-row">
-            <label for="message">Mensaje:</label>
-            <div class="message-container">
-              <textarea id="message" name="message" class="input" style="width: 350px;" required></textarea>
-              <button type="submit">Enviar</button>
-            </div>
-          </div>
-        </form>
-      </div>
+    footer .social-media {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    footer .social-media a {
+      margin-right: 10px;
+    }
+  </style>
+  </head>
+  <body>
+  <footer>
+    <img src="https://github.com/Cpmoralesv/paginaimpala/blob/webcris/logo2.png?raw=true" alt="Logo" />
+    <h3>Impala</h3>
+    <div>
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#productos">Productos</a>
     </div>
-    
-    
-    
+    <div class="social-media">
+      <a href="https://www.facebook.com/impala" target="_blank">
+        <img src="ruta_imagen_facebook" alt="Facebook" />
+      </a>
+      <a href="https://www.instagram.com/impala" target="_blank">
+        <img src="ruta_imagen_instagram" alt="Instagram" />
+      </a>
+      <a href="https://www.twitter.com/impala" target="_blank">
+        <img src="ruta_imagen_twitter" alt="Twitter" />
+      </a>
+    </div>
+    <form action="mailto:crismoralesvelasquez@gmail.com" method="post" enctype="text/plain">
+      <h3>¡Contáctanos!</h3>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required>
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </footer>
+
+
     
  <!-- WHATSAPP SCROLL -->
 
@@ -252,10 +427,10 @@
   <img src="https://raw.githubusercontent.com/Cpmoralesv/paginaimpala/webcris/escribenos.png" alt="WhatsApp" style="width: 120px; height: 120px;">
 </a>
 
-
-  
+ 
 </body>
 </html>
+
 
 
 
